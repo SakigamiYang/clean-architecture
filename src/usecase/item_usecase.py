@@ -11,4 +11,4 @@ class ItemUseCase(UseCase):
 
     def process_request(self, request_object: ItemListRequest) -> resp.SuccessResponse:
         items = self.repo.list(filters=request_object.filters)
-        return resp.SuccessResponse(data={'items': items})
+        return resp.SuccessResponse(data={'items': [item.to_dict() for item in items]})

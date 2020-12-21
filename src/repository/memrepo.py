@@ -5,10 +5,10 @@ from domain.item import Item
 
 
 class MemRepo:
-    def __init__(self, entries: typing.List[Item] = None) -> None:
+    def __init__(self, entries: typing.List[typing.Mapping[str, typing.Any]] = None) -> None:
         self._entries = entries or list()
 
-    def _check(self, element: Item, key: str, value: typing.Any) -> bool:
+    def _check(self, element: typing.List[typing.Mapping[str, typing.Any]], key: str, value: typing.Any) -> bool:
         if '__' not in key:
             key = key + '__eq'
 
